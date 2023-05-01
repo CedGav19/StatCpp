@@ -11,16 +11,18 @@ using namespace std;
 class DataSource1D
 {   
     private:
-        
-        int vecteur[9];
-        int effectif;
+    //doit peut etre rajouter l'age 
+        int vec1[9] ;  // objet contenant 3 vecteurs , colonne des fichier csv 
+        int vec2 [9]; 
+        int vec3[9]; 
+        //int effectif;      // faire une methode qui calcul combien d'elt sont dans le vct 
 
     public:
          // constructeur 
         DataSource1D(string NomFichier);
 
         //methodes
-        void ajouter(int valeur);
+        void ajouter(int * vecteur, int valeur);
         float getEffectif();
     
 };

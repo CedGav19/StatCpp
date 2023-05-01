@@ -6,40 +6,35 @@ DataSource1D::DataSource1D(string NomFichier)
     char buffer[200];
     char * strToken;
 
-    int intTampon;
-    DataSource1D vec1,vec2,vec3 //trois classe pour toris different type de vec
+    int *intTampon;
     int vect[2];
 
     ifstream fichier2(NomFichier, ios::in);
-    fichier.getline(buffer, 200);
+    fichier2.getline(buffer, 200);
     
     int i = 0;
     while(fichier2.getline(buffer, 50))
     {   
 
         strToken = strtok(buffer, ";,\"");
-        intTampon = strToken;
-        vect[0] = intTampon;
+        intTampon = (int*)strToken-48;
+        ajouter(vec1,*intTampon);
+        
+        strToken = strtok(NULL, ";,\"");
+        intTampon = (int*)strToken-48;
+        ajouter(vec2,*intTampon);
 
         strToken = strtok(NULL, ";,\"");
-        intTampon = strToken;
-        vect[1] = intTampon;
-
-        strToken = strtok(NULL, ";,\"");
-        intTampon = strToken;
-        vect[2] = intTampon;
-
-        vec1.ajouter(vect[0]);
-        vec2.ajouter(vect[1]);
-        vec3.ajouter(vect[2]); //la methode ajouter va trier/regarder quel type c'est et ajouter type 1 2 ou 3 
-
+        intTampon = (int*)strToken-48;
+        ajouter(vec3,*intTampon); 
+        
         i++;
     }
 }
 
-void DataSource1D::ajouter(int valeur)
+void DataSource1D::ajouter(int * vecteur,int valeur)
 {
-    effectif++;
+    //effectif++;
     switch(valeur)
     {   case 0:
             vecteur[0]++;
@@ -73,10 +68,10 @@ void DataSource1D::ajouter(int valeur)
         break;
     }
 
-    return 0;
 }
 
- DataSource1D::getEffectif()
+ float DataSource1D::getEffectif()
  {
-    return effectif;
+    //return effectif;   grace a un calcul 
+    return 0  ; 
  }

@@ -16,7 +16,7 @@ class EtudeStatistique1D
         //variable moyenne
         float moyenne;
         float mediane;
-        float mode;
+        float mode[2];
         //varibale dispersion
         float ecart_type;
         float etendue;
@@ -25,25 +25,24 @@ class EtudeStatistique1D
     public:
 
         // constructeur et destructeur
-        EtudeStatistique1D(DataSource1D vec);
-        EtudeStatistique1D();
+        EtudeStatistique1D(int vec);
         ~EtudeStatistique1D();
 
         //fonction de calcule qui calcule sur base du vecteur
 
-        float calculeMoyenne(DataSource1D vec);
-        float calculeMediane(DataSource1D vec);
-        float calculeMode(DataSource1D vec);
-        float calculeS(DataSource1D vec);
-        float calculeRange(DataSource1D vec);
-        float calculeCV(DataSource1D vec);
+        float calculeMoyenne(int vec);
+        float calculeMediane(int vec);
+        float calculeMode(int vec);
+        float calculeS(int vec);
+        float calculeRange(int vec);
+        float calculeCV(int vec);
 
         //variable moyenne
-        float  getMoyenne();
+        float getMoyenne();
         float getMediane();
         float getMode();
         //varibale dispersion
-        float etS();
+        float getS();
         float getRange();
         float getCV();
     

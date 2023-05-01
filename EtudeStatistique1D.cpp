@@ -1,18 +1,9 @@
-#include <ParamètresStatistiques1D>
+#include "EtudeStatistique1D.h"
 
-//constructeur par default
-EtudeStatistique1D::EtudeStatistique1D()
-{
-        moyenne =0;
-        mediane =0;
-        mode =0;
-        ecart_type =0;
-        etendue =0;
-        coef_var =0;
-}
+
 
 //constructeur d'initialisation
-EtudeStatistique1D::EtudeStatistique1D(DataSource1D vec)
+EtudeStatistique1D::EtudeStatistique1D(int vec)
 {   
     moyenne = calculeMoyenne(vec);
 }
@@ -29,25 +20,25 @@ EtudeStatistique1D::~EtudeStatistique1D()
 calcule la moyenne de mon vecteur
 ***********************************************************************************/
 
-EtudeStatistique1D::calculeMoyenne(DataSource1D vec)
+float EtudeStatistique1D::calculeMoyenne(int vec)      
 {
-        int eff = vec.getEffectif();
+        /*int eff = vec.getEffectif();
 
         for(int somme=0,int i=0 ; i < eff ; i++)
         {
               somme = somme + vec.vecteur[i]
         }
 
-        return moyenne = somme/eff;
+        return moyenne = somme/eff;*/
 }
 
 /***********************************************************************************
 calcule le maximum dans mon vecteur
 ***********************************************************************************/
 
-EtudeStatistique1D::calculeMode(DataSource1D vec)
+float EtudeStatistique1D::calculeMode(int vec)
 {
-        int eff = vec.getEffectif();
+        /*int eff = vec.getEffectif();
         int max=0;
 
         for(int i=0 ; i < eff ; i++)
@@ -58,57 +49,57 @@ EtudeStatistique1D::calculeMode(DataSource1D vec)
               }
         }
 
-        return max;
+        return max; */
 }
 
-EtudeStatistique1D::calculeMediane(DataSource1D vec)
+float EtudeStatistique1D::calculeMediane(int vec)
 {
         
 }
 
-EtudeStatistique1D::calculeS(DataSource1D vec)
+float EtudeStatistique1D::calculeS(int vec)
 {
         
 }
 
-EtudeStatistique1D::calculeRange(DataSource1D vec)
+float EtudeStatistique1D::calculeRange(int vec)
 {
         
 }
 
-EtudeStatistique1D::calculeCV(DataSource1D vec)
+float EtudeStatistique1D::calculeCV(int vec)
 {
         
 }
 
 //getter de mes variable
 
-EtudeStatistique1D::getMoyenne()
+float EtudeStatistique1D::getMoyenne()
 {
 
 }
 
-EtudeStatistique1D::getMediane()
+float EtudeStatistique1D::getMediane()
 {
 
 }
 
-EtudeStatistique1D::getMode()
+float EtudeStatistique1D::getMode()
 {
 
 }
 
-EtudeStatistique1D::getS()
+float EtudeStatistique1D::getS()
 {
 
 }
 
-EtudeStatistique1D::getRange()
+float EtudeStatistique1D::getRange()
 {
 
 }
 
-EtudeStatistique1D::getCV()
+float EtudeStatistique1D::getCV()
 {
 
 }
