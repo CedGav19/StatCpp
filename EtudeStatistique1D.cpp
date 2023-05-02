@@ -3,9 +3,11 @@
 
 
 //constructeur d'initialisation
-EtudeStatistique1D::EtudeStatistique1D(int vec)
+EtudeStatistique1D::EtudeStatistique1D(int * vecteur)
 {   
-    moyenne = calculeMoyenne(vec);
+        vec = vecteur ; 
+        vecdebut = vec;
+        
 }
 
 //destructeur
@@ -20,54 +22,57 @@ EtudeStatistique1D::~EtudeStatistique1D()
 calcule la moyenne de mon vecteur
 ***********************************************************************************/
 
-float EtudeStatistique1D::calculeMoyenne(int vec)      
+float EtudeStatistique1D::calculeMoyenne()      
 {
-        /*int eff = vec.getEffectif();
-
-        for(int somme=0,int i=0 ; i < eff ; i++)
+        int effectif=0;
+        int moyenne=0;
+        for(int i=0 ; i<=9; i++,vec++)
         {
-              somme = somme + vec.vecteur[i]
+               effectif+=*vec;
+               moyenne+=*vec*i;
         }
+        resetvec();
+        return moyenne/effectif; 
 
-        return moyenne = somme/eff;*/
 }
 
 /***********************************************************************************
 calcule le maximum dans mon vecteur
 ***********************************************************************************/
 
-float EtudeStatistique1D::calculeMode(int vec)
+float EtudeStatistique1D::calculeMode()
 {
-        /*int eff = vec.getEffectif();
         int max=0;
-
-        for(int i=0 ; i < eff ; i++)
+        for(int i=0 ; i<=9; i++,vec++)
         {
-              if(vec.vecteur[i] > max)
-              {
-                      max=vec.vecteur[i];
-              }
+                if( *vec > max)
+                {
+                        max=*vec;
+                }
         }
-
-        return max; */
+        resetvec();
+        return max; 
 }
 
-float EtudeStatistique1D::calculeMediane(int vec)
+float EtudeStatistique1D::calculeMediane()
+{
+        float mediane ; 
+        mediane =(*(vec+4)+*(vec+5))/2;
+
+        return mediane ;
+}
+
+float EtudeStatistique1D::calculeS()
 {
         
 }
 
-float EtudeStatistique1D::calculeS(int vec)
+float EtudeStatistique1D::calculeRange()
 {
         
 }
 
-float EtudeStatistique1D::calculeRange(int vec)
-{
-        
-}
-
-float EtudeStatistique1D::calculeCV(int vec)
+float EtudeStatistique1D::calculeCV()
 {
         
 }
@@ -76,22 +81,22 @@ float EtudeStatistique1D::calculeCV(int vec)
 
 float EtudeStatistique1D::getMoyenne()
 {
-
+        return moyenne;
 }
 
 float EtudeStatistique1D::getMediane()
 {
-
+        return mediane; 
 }
 
 float EtudeStatistique1D::getMode()
 {
-
+        return mode[0];
 }
 
 float EtudeStatistique1D::getS()
 {
-
+        
 }
 
 float EtudeStatistique1D::getRange()
@@ -102,4 +107,10 @@ float EtudeStatistique1D::getRange()
 float EtudeStatistique1D::getCV()
 {
 
+}
+
+
+void EtudeStatistique1D::resetvec()
+{
+        vec=vecdebut;
 }

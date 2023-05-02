@@ -21,21 +21,24 @@ class EtudeStatistique1D
         float ecart_type;
         float etendue;
         float coef_var;
+        int *vec ; 
+        int *vecdebut;
 
     public:
 
         // constructeur et destructeur
-        EtudeStatistique1D(int vec);
+        EtudeStatistique1D(int * vecteur);
         ~EtudeStatistique1D();
 
+        void resetvec();
         //fonction de calcule qui calcule sur base du vecteur
 
-        float calculeMoyenne(int vec);
-        float calculeMediane(int vec);
-        float calculeMode(int vec);
-        float calculeS(int vec);
-        float calculeRange(int vec);
-        float calculeCV(int vec);
+        float calculeMoyenne();
+        float calculeMediane ();
+        float calculeMode();
+        float calculeS();
+        float calculeRange();
+        float calculeCV();
 
         //variable moyenne
         float getMoyenne();
@@ -45,7 +48,7 @@ class EtudeStatistique1D
         float getS();
         float getRange();
         float getCV();
-    
+        
 };
 #endif
 
