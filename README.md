@@ -2,7 +2,7 @@
 
 Recap : 
 
-Dans le fichier EtudeStatistique 1 D oon doit passer en parametre dans le constructeur un objet de type 
+Dans le fichier EtudeStatistique 1 D on doit passer en parametre dans le constructeur un objet de type 
 DataSourced 1 d qui contient un tableau de int 
 
 la classe Echantillon recup les infos dans le fichier et correspon a une seule colonne du fichier

@@ -3,10 +3,15 @@
 
 
 //constructeur d'initialisation
-EtudeStatistique1D::EtudeStatistique1D(int * vecteur)
+//REMPLACER PAR UN OBJET DATASURCE1D
+EtudeStatistique1D::EtudeStatistique1D(DataSource1D data)  
 {   
-        vec = vecteur ; 
+        vec = data.vec1 ; 
+        
         vecdebut = vec;
+
+        affiche();
+        //calcul plus appel affiche
         
 }
 
@@ -113,4 +118,9 @@ float EtudeStatistique1D::getCV()
 void EtudeStatistique1D::resetvec()
 {
         vec=vecdebut;
+}
+
+void EtudeStatistique1D::affiche()
+{
+        cout<<("la moyenne et de : ") << getMoyenne() << endl ;
 }

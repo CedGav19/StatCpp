@@ -12,18 +12,18 @@ class DataSource1D
 {   
     private:
     //doit peut etre rajouter l'age 
-        int vec1[9] ;  // objet contenant 3 vecteurs , colonne des fichier csv 
-        int vec2 [9]; 
-        int vec3[9]; 
-        //int effectif;      // faire une methode qui calcul combien d'elt sont dans le vct 
+        int vec1[9] ;
+        int effectif ; 
+     
 
     public:
          // constructeur 
-        DataSource1D(string NomFichier);
+        DataSource1D(int colonne);
+        DataSource1D();//remplis le vec avec des 0 
 
         //methodes
-        void ajouter(int * vecteur, int valeur);
-        float getEffectif();
+        void ajouter(int valeur);
+        float getEffectifTotal();
     
 };
 #endif

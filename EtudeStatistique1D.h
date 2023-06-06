@@ -21,13 +21,14 @@ class EtudeStatistique1D
         float ecart_type;
         float etendue;
         float coef_var;
+        
         int *vec ; 
         int *vecdebut;
 
     public:
 
         // constructeur et destructeur
-        EtudeStatistique1D(int * vecteur);
+        EtudeStatistique1D(DataSource1D data);
         ~EtudeStatistique1D();
 
         void resetvec();
@@ -48,6 +49,8 @@ class EtudeStatistique1D
         float getS();
         float getRange();
         float getCV();
+
+        void affiche() ; 
         
 };
 #endif
