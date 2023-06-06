@@ -4,15 +4,24 @@
 
 //constructeur d'initialisation
 //REMPLACER PAR UN OBJET DATASURCE1D
-EtudeStatistique1D::EtudeStatistique1D(DataSource1D data)  
+EtudeStatistique1D::EtudeStatistique1D(  DataSource1D  data)  
 {   
-        vec = data.vec1 ; 
-        
+          cout <<"(Etudestat) debut du constructeur" <<endl;
+        vec = data.getVecteur();
+         cout<<"(MAIN) verif de la lectur des donness  "<<endl;
+       
         vecdebut = vec;
+         moyenne= calculeMoyenne();
+         mediane= calculeMediane();
+         mode[0]=calculeMode();
+         ecart_type= calculeS();
+         etendue = calculeRange();
+         coef_var = calculeCV();
+         
 
         affiche();
         //calcul plus appel affiche
-        
+        cout <<"(Etudestat) fin du constructeur" <<endl;
 }
 
 //destructeur
@@ -37,7 +46,8 @@ float EtudeStatistique1D::calculeMoyenne()
                moyenne+=*vec*i;
         }
         resetvec();
-        return moyenne/effectif; 
+        //return moyenne/effectif; 
+        return 0;
 
 }
 
@@ -56,30 +66,31 @@ float EtudeStatistique1D::calculeMode()
                 }
         }
         resetvec();
-        return max; 
+        //return max;
+        return 0 ; 
 }
 
 float EtudeStatistique1D::calculeMediane()
 {
-        float mediane ; 
+        /*float mediane ; 
         mediane =(*(vec+4)+*(vec+5))/2;
-
-        return mediane ;
+*/
+        return 0 ;
 }
 
 float EtudeStatistique1D::calculeS()
 {
-        
+        return 0 ;
 }
 
 float EtudeStatistique1D::calculeRange()
 {
-        
+        return 0 ;
 }
 
 float EtudeStatistique1D::calculeCV()
 {
-        
+        return 0 ;
 }
 
 //getter de mes variable
@@ -99,19 +110,19 @@ float EtudeStatistique1D::getMode()
         return mode[0];
 }
 
-float EtudeStatistique1D::getS()
+float EtudeStatistique1D::getecartType()
 {
-        
+        return ecart_type ;
 }
 
-float EtudeStatistique1D::getRange()
+float EtudeStatistique1D::getEtendue()
 {
-
+        return etendue;
 }
 
-float EtudeStatistique1D::getCV()
+float EtudeStatistique1D::getCoef_var()
 {
-
+        return coef_var ; 
 }
 
 
@@ -122,5 +133,10 @@ void EtudeStatistique1D::resetvec()
 
 void EtudeStatistique1D::affiche()
 {
-        cout<<("la moyenne et de : ") << getMoyenne() << endl ;
+        cout<<("la moyenne est de : ") << moyenne << endl ;
+        cout<<("la mediane est de : ") << mediane << endl ;
+        cout<<("le mode est de : ") << mode[0] << endl ;
+        cout<<("l'ecart type est de : ") << ecart_type << endl ;
+        cout<<("l'etendue est de : ") << etendue << endl ;
+        cout<<("le coefficient de variation est de : ") << coef_var << endl ;
 }

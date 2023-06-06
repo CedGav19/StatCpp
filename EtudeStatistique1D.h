@@ -13,7 +13,10 @@ using namespace std;
 class EtudeStatistique1D
 {   
     private:
-        //variable moyenne
+        int *vec ; 
+        int *vecdebut;
+
+         //variable moyenne
         float moyenne;
         float mediane;
         float mode[2];
@@ -21,11 +24,9 @@ class EtudeStatistique1D
         float ecart_type;
         float etendue;
         float coef_var;
-        
-        int *vec ; 
-        int *vecdebut;
 
     public:
+    
 
         // constructeur et destructeur
         EtudeStatistique1D(DataSource1D data);
@@ -37,19 +38,16 @@ class EtudeStatistique1D
         float calculeMoyenne();
         float calculeMediane ();
         float calculeMode();
-        float calculeS();
-        float calculeRange();
-        float calculeCV();
+        float calculeS(); // ecart type 
+        float calculeRange(); //etendue 
+        float calculeCV(); // coef de variation 
 
-        //variable moyenne
         float getMoyenne();
         float getMediane();
         float getMode();
-        //varibale dispersion
-        float getS();
-        float getRange();
-        float getCV();
-
+        float getecartType();
+        float getEtendue();
+        float getCoef_var();
         void affiche() ; 
         
 };

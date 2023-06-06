@@ -1,7 +1,6 @@
 #ifndef DataSource1D_H
 #define DataSource1D_H
 
-//test
 #include <iostream>
 using namespace std;
 #include <cstring>
@@ -11,8 +10,8 @@ using namespace std;
 class DataSource1D
 {   
     private:
-    //doit peut etre rajouter l'age 
-        int vec1[9] ;
+     
+        int vec[10] ;
         int effectif ; 
      
 
@@ -24,6 +23,7 @@ class DataSource1D
         //methodes
         void ajouter(int valeur);
         float getEffectifTotal();
+        int * getVecteur();
     
 };
 #endif
