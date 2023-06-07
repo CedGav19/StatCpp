@@ -7,7 +7,7 @@
 
 int main() 
 {
-    //menu
+    //MENU
     /*int choix,menu = true;
 
     while (menu) {
@@ -51,8 +51,6 @@ int main()
                 menu = false;
             
             break;
-            
-        
         }
     }*/
 
@@ -74,13 +72,6 @@ int main()
 
     //FIN DE ZONE 
 
-    // FAIRE LE MENU    
-
-    // on aura un truc du genre 
-    // etudestatistique(Echantillon(nomdufichier).data)
-
-
-    
     return 1 ;
 }
 
