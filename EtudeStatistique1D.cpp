@@ -4,10 +4,11 @@
 
 //constructeur d'initialisation
 //REMPLACER PAR UN OBJET DATASURCE1D
-EtudeStatistique1D::EtudeStatistique1D(  DataSource1D  data)  
+EtudeStatistique1D::EtudeStatistique1D(DataSource1D* data)   
 {   
-          cout <<"(Etudestat) debut du constructeur" <<endl;
-        vec = data.getVecteur();
+            cout << "(Etudestat) debut du constructeur" << endl;
+    vec = data->getVecteur();
+          
          cout<<"(MAIN) verif de la lectur des donness  "<<endl;
        
         vecdebut = vec;

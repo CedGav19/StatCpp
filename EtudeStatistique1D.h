@@ -29,7 +29,7 @@ class EtudeStatistique1D
     
 
         // constructeur et destructeur
-        EtudeStatistique1D(DataSource1D data);
+        EtudeStatistique1D(DataSource1D* data);
         ~EtudeStatistique1D();
 
         void resetvec();
