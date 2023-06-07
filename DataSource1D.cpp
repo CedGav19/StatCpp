@@ -10,14 +10,11 @@ DataSource1D::DataSource1D()
 
 void DataSource1D::ajouter(int valeur)
 {
-    cout << "(DATASOURCE) ajout d'une valeur : "<< valeur << endl;
-       cout << "(DATASOURCE) valeur du vec ava,nt iteration : "<< valeur << endl;
     vec[valeur]++ ;
 
-  //  effectif++;
+  effectif++;
     
    
-    cout << "(DATASOURCE) fin ajout d'une valeur" << endl;
 
 }
 
@@ -31,3 +28,4 @@ void DataSource1D::ajouter(int valeur)
  {
      return vec ; // on retourne donc l'adresse du vecteur ( du 0 )
  }
+

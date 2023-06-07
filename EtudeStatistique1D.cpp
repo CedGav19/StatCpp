@@ -39,15 +39,8 @@ calcule la moyenne de mon vecteur
 
 float EtudeStatistique1D::calculeMoyenne()      
 {
-        int effectif=0;
-        int moyenne=0;
-        for(int i=0 ; i<=9; i++,vec++)
-        {
-               effectif+=*vec;
-               moyenne+=*vec*i;
-        }
-        resetvec();
-        //return moyenne/effectif; 
+        // a faire en utilisant les variable de datasource 1 d 
+         
         return 0;
 
 }

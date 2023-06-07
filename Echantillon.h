@@ -20,6 +20,8 @@ class Echantillon
 
         DataSource1D* getData() const;
         Echantillon(int colonne ); 
+
+    
     
 };
 #endif

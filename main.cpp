@@ -5,10 +5,14 @@
 #include <iostream>
 #include <fstream>
 
+using namespace std;
+
 int main() 
 {
     //MENU
-    /*int choix,menu = true;
+    int choix=0;
+    bool menu = true;
+     
 
     while (menu) {
         cout << "pour quel aspect de la station de ski il souhaite voir l'étude statistique :" << endl;
@@ -20,57 +24,37 @@ int main()
         cout << "Choisissez une option : ";
         cin >> choix;
 
-        switch (choix) {
-            case 1:
-                cout << "Calcule de la premiere colone en cours" << endl;
-                //instancie un echantillon
-                Echantillon colone1(1);
-                EtudeStatistique1D test1(colone1.getData());
-                test1.affiche();
+        switch(choix) {
+             case 1:
+            cout << "colonne 1 sélectionnée." << endl;
             break;
-
-            case 2:
-                cout << "Calcule de la deuxieme colone en cours" << endl;
-                //instancie un echantillon
-                Echantillon colone2(2);
-                //fait les calcules
-                EtudeStatistique1D test2(colone2.getData());
-                //affiche les resultat
-                test2.affiche();
+          case 2:
+            cout << "colonne 2 sélectionnée." << endl;
             break;
-
             case 3:
-                cout << "Calcule de la troisieme colone en cours" << endl;
-                //instancie un echantillon
-                Echantillon colone3(3);
-                EtudeStatistique1D test3(colone3.getData());
-                test3.affiche();
-                break;
+               cout << "colonne 2 sélectionnée." << endl;
+               break;
             case 4:
                 cout << "Vous quitter l'aplication" << endl;
                 menu = false;
-            
             break;
+          
         }
-    }*/
+        if(choix==1|| choix==2|| choix==3)
+        {
+            Echantillon ech(choix); 
+            EtudeStatistique1D E1(ech.getData());
+        
+      
 
-    //ZONE DE TEST 
-
-    cout<< "(MAIN) etude statistique de notre foichier "<< endl ; 
-    
-    Echantillon Ech(3); 
-
-
-   // EtudeStatistique1D E1(*(Ech.getData()));
-
-    cout<<"(MAIN) apres la creation de etude statistique "<<endl;
- 
         for (int i =0 ; i<=10 ;i++)
          {
-        cout << i<< " = " <<Ech.getData()->getVecteur()[i] << endl ;
+        cout << i<< " = " <<ech.getData()->getVecteur()[i] << endl ;
           }
 
-    //FIN DE ZONE 
+          cout<< "effectif : " << ech.getData()->getEffectifTotal();   
+        }
+    }
 
     return 1 ;
 }

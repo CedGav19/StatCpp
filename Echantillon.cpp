@@ -20,10 +20,7 @@ Echantillon::Echantillon(int colonne )
         strToken = strtok(buffer, ";");
         intTampon = stoi(strToken);
         
-
-        cout << "(ECHANTILLON) tour de boucle" << endl;
         strToken = strtok(NULL, ";");
-        cout<< "(ECHANTILLON) mot de  colonne 1  : "<< strToken << endl;
         intTampon = stoi(strToken);
        if(colonne==1 ) data->ajouter(intTampon);
         
@@ -45,6 +42,8 @@ DataSource1D *  Echantillon::getData()const
 {
     return data ;
 }
+
+
 
 
 
