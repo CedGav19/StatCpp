@@ -43,7 +43,7 @@ void EtudeStatistique1D::calculeMoyenne(DataSource1D* d)
 
         for( i=0; i<10;i++)
         {
-             somme+= d->getVecteur()[i]*i;  //exemple 5 uniter * 5 points
+             somme+= d->getVecteur()[i]*(i+1);  //exemple 5 uniter * 5 points
         }
 
         moyenne = somme/d->getEffectifTotal() ; 
