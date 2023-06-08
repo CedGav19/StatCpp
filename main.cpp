@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main() 
+int main(int argc, char* argv[])
 {
     //MENU
     int choix=0;
@@ -46,7 +46,7 @@ int main()
         if(choix==1|| choix==2|| choix==3)
         {
             //crée un obj echantillon qui va crée un obj datasource qui contient la colone en question
-            Echantillon ech(choix); 
+            Echantillon ech(choix,argv[1]); 
             //on prend les donnée et on les fait analyser par nos fonction
             EtudeStatistique1D E1(ech.getData());
         
@@ -62,6 +62,6 @@ int main()
         }
     }
 
-    return 1 ;
+    return 1;
 }
 

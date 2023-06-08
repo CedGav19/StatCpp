@@ -19,7 +19,7 @@ class Echantillon
     public:
 
         DataSource1D* getData() const;
-        Echantillon(int colonne ); 
+        Echantillon(int colonne, string nomfichier ); 
 
     
     

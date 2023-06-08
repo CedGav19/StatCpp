@@ -1,6 +1,6 @@
 #include "Echantillon.h"
 
-Echantillon::Echantillon(int colonne )
+Echantillon::Echantillon(int colonne,string nomfichier )
 {
     data = new DataSource1D();
     cout << "(ECHANTILLON) debut du constructeur" << endl;
@@ -9,7 +9,7 @@ Echantillon::Echantillon(int colonne )
 
     int intTampon;
 
-    ifstream fichier2("DataSkiInpres.csv", ios::in);
+    ifstream fichier2(nomfichier, ios::in);
     fichier2.getline(buffer, 200);
     cout << "(ECHANTILLON) apres ouverture du fichier" << endl;
   
