@@ -9,9 +9,9 @@ Echantillon::Echantillon(int colonne )
 
     int intTampon;
 
-   ifstream fichier2("DataSkiInpres2.csv", ios::in);
+    ifstream fichier2("DataSkiInpres.csv", ios::in);
     fichier2.getline(buffer, 200);
-     cout << "(ECHANTILLON) apres ouverture du fichier" << endl;
+    cout << "(ECHANTILLON) apres ouverture du fichier" << endl;
   
     int i = 0;
     while(fichier2.getline(buffer, 50))
@@ -20,6 +20,7 @@ Echantillon::Echantillon(int colonne )
         strToken = strtok(buffer, ";");
         intTampon = stoi(strToken);
         
+        //va remplir l'obj datasource avec la colone correspondant
         strToken = strtok(NULL, ";");
         intTampon = stoi(strToken);
        if(colonne==1 ) data->ajouter(intTampon);

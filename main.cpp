@@ -41,9 +41,13 @@ int main()
             
           
         }
+
+        //le choix correspond a la colone sur la quel porte l'etude
         if(choix==1|| choix==2|| choix==3)
         {
+            //crée un obj echantillon qui va crée un obj datasource qui contient la colone en question
             Echantillon ech(choix); 
+            //on prend les donnée et on les fait analyser par nos fonction
             EtudeStatistique1D E1(ech.getData());
         
       

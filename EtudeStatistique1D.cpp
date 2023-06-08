@@ -6,18 +6,17 @@
 //REMPLACER PAR UN OBJET DATASURCE1D
 EtudeStatistique1D::EtudeStatistique1D(DataSource1D* data)   
 {   
-            cout << "(Etudestat) debut du constructeur" << endl;
+        cout << "(Etudestat) debut du constructeur" << endl;
     
-          
-         cout<<"(Etudestat) verif de la lectur des donness  "<<endl;
+        cout<<"(Etudestat) verif de la lectur des donness  "<<endl;
        
-
-         calculeMoyenne(data);
-          calculeMediane(data);
-         calculeMode(data);
-          calculeS(data);
-          calculeRange(data);
-         calculeCV(data);
+        //passage de l'obj datasource contenu dans echantillon au différente fonction
+        calculeMoyenne(data);
+        calculeMediane(data);
+        calculeMode(data);
+        calculeS(data);
+        calculeRange(data);
+        calculeCV(data);
          
 
         affiche();
@@ -31,7 +30,7 @@ EtudeStatistique1D::~EtudeStatistique1D()
 
 }
 
-//fonction qui calcule les differnet champs
+//fonction qui calcule les differents champs
 
 /***********************************************************************************
 calcule la moyenne de mon vecteur
@@ -39,20 +38,19 @@ calcule la moyenne de mon vecteur
 
 void EtudeStatistique1D::calculeMoyenne(DataSource1D* d)      
 {
-
         int somme=0 ; 
         int i ;
+
         for( i=0; i<10;i++)
         {
-                somme+=d->getVecteur()[i]*i;
+             somme+= d->getVecteur()[i]*i;  //exemple 5 uniter * 5 points
         }
-        moyenne= somme/d->getEffectifTotal() ; 
-       
 
+        moyenne = somme/d->getEffectifTotal() ; 
 }
 
 /***********************************************************************************
-calcule le maximum dans mon vecteur
+calcule le maximum dans mon vecteur valeur qui son le plus souvent présente
 ***********************************************************************************/
 
 void EtudeStatistique1D::calculeMode(DataSource1D* d)
@@ -85,35 +83,66 @@ void EtudeStatistique1D::calculeMode(DataSource1D* d)
 	}
 }
 
+/***********************************************************************************
+calcule la mediane 
+***********************************************************************************/
+
 void EtudeStatistique1D::calculeMediane(DataSource1D* d)
 {
-     
         mediane=  d->getVecteur()[4]; 
 }
 
+/***********************************************************************************
+calcule 
+***********************************************************************************/
+
 void EtudeStatistique1D::calculeS(DataSource1D* d)
 {
-       int  tmp = 0 ;
+        int  tmp = 0 ;
         int dif = 0 ;
         int i = 0 ;
+
         for( i=0; i<10;i++)
         {
-
                 tmp+= (i+1)*pow(d->getVecteur()[i] - getMoyenne(),2);
         }
+
         ecart_type= sqrt(tmp/d->getEffectifTotal());
 }
 
+/***********************************************************************************
+calcule de létendue
+***********************************************************************************/
+
 void EtudeStatistique1D::calculeRange(DataSource1D* d)
 {
-        etendue= 0 ;
+        int etendue= 0 ;
+
+        int minVal = d->getVecteur()[0];
+        int maxVal = d->getVecteur()[0];
+    
+        for (int i = 1; i < 10; i++) 
+        {
+                if (d->getVecteur()[i] < minVal) 
+                {
+                        minVal = d->getVecteur()[i];
+                }
+                if (d->getVecteur()[i] > maxVal) 
+                {
+                        maxVal = d->getVecteur()[i];
+                }
+        }
+    
+        etendue = maxVal - minVal; // etendue = la valeur max moin la valeur min du vec
 }
+
+/***********************************************************************************
+calcule du coeficient de variation
+***********************************************************************************/
 
 void EtudeStatistique1D::calculeCV(DataSource1D* d)
 {
-
 	coef_var = (ecart_type/moyenne)*100;
-        
 }
 
 //getter de mes variable
