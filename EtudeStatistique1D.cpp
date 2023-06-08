@@ -56,26 +56,24 @@ calcule le maximum dans mon vecteur valeur qui son le plus souvent présente
 void EtudeStatistique1D::calculeMode(DataSource1D* d)
 {
 	int Valeur = 0;
-        int j = 0, i = 0;
+        int j = 0;
 
         for(int i = 0 ; i<3 ; i++)
         {
              mode[i]=0;   
         } 
 
-	Valeur = d->getVecteur()[0];
-
-
-	for (int i = 1; i < 10; i++)
+	
+	for (int i = 0; i < 10; i++)
 	{
 		if (Valeur < d->getVecteur()[i])
 		{
 			Valeur = d->getVecteur()[i];
 		}
 	}
-	for (i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		if ( Valeur == d->getVecteur()[i] &&j < 3 )
+		if ( Valeur == d->getVecteur()[i] && j < 3 )
 		{
 			mode[j] = i + 1;
 			j++;
@@ -89,7 +87,7 @@ calcule la mediane
 
 void EtudeStatistique1D::calculeMediane(DataSource1D* d)
 {
-        mediane=  d->getVecteur()[4]; 
+        mediane=  (d->getVecteur()[4] + d->getVecteur()[5]) /2; 
 }
 
 /***********************************************************************************

@@ -19,7 +19,7 @@ class EtudeStatistique1D
          //variable moyenne
         float moyenne;
         float mediane;
-        float mode[2];
+        float mode[3];
         //varibale dispersion
         float ecart_type;
         float etendue;

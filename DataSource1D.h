@@ -11,7 +11,7 @@ class DataSource1D
 {   
     private:
      
-        int vec[9] ;
+        int vec[10] ;
         int effectif ; 
      
 
