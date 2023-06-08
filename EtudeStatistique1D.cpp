@@ -114,12 +114,12 @@ calcule de létendue
 
 void EtudeStatistique1D::calculeRange(DataSource1D* d)
 {
-        int etendue= 0 ;
+        
 
         int minVal = d->getVecteur()[0];
         int maxVal = d->getVecteur()[0];
     
-        for (int i = 1; i < 10; i++) 
+        for (int i = 0; i < 10; i++) 
         {
                 if (d->getVecteur()[i] < minVal) 
                 {
@@ -130,8 +130,10 @@ void EtudeStatistique1D::calculeRange(DataSource1D* d)
                         maxVal = d->getVecteur()[i];
                 }
         }
-    
+        //cout <<"maxval :"<< maxVal << endl;
+        //cout <<"minval :"<< minVal << endl;
         etendue = maxVal - minVal; // etendue = la valeur max moin la valeur min du vec
+        //cout << "etendue :" << etendue << endl;
 }
 
 /***********************************************************************************
@@ -165,7 +167,7 @@ float EtudeStatistique1D::getecartType()
         return ecart_type ;
 }
 
-float EtudeStatistique1D::getEtendue()
+int EtudeStatistique1D::getEtendue()
 {
         return etendue;
 }

@@ -22,7 +22,7 @@ class EtudeStatistique1D
         float mode[3];
         //varibale dispersion
         float ecart_type;
-        float etendue;
+        int etendue;
         float coef_var;
 
     public:
@@ -45,7 +45,7 @@ class EtudeStatistique1D
         float getMediane();
         float getMode();
         float getecartType();
-        float getEtendue();
+        int getEtendue();
         float getCoef_var();
         void affiche() ; 
         
