@@ -7,17 +7,17 @@
 EtudeStatistique1D::EtudeStatistique1D(DataSource1D* data)   
 {   
             cout << "(Etudestat) debut du constructeur" << endl;
-    vec = data->getVecteur();
+    
           
-         cout<<"(MAIN) verif de la lectur des donness  "<<endl;
+         cout<<"(Etudestat) verif de la lectur des donness  "<<endl;
        
-        vecdebut = vec;
-         moyenne= calculeMoyenne();
-         mediane= calculeMediane();
-         mode[0]=calculeMode();
-         ecart_type= calculeS();
-         etendue = calculeRange();
-         coef_var = calculeCV();
+
+         calculeMoyenne(data);
+          calculeMediane(data);
+         calculeMode(data);
+          calculeS(data);
+          calculeRange(data);
+         calculeCV(data);
          
 
         affiche();
@@ -37,11 +37,17 @@ EtudeStatistique1D::~EtudeStatistique1D()
 calcule la moyenne de mon vecteur
 ***********************************************************************************/
 
-float EtudeStatistique1D::calculeMoyenne()      
+void EtudeStatistique1D::calculeMoyenne(DataSource1D* d)      
 {
-        // a faire en utilisant les variable de datasource 1 d 
-         
-        return 0;
+
+        int somme=0 ; 
+        int i ;
+        for( i=0; i<10;i++)
+        {
+                somme+=d->getVecteur()[i]*i;
+        }
+        moyenne= somme/d->getEffectifTotal() ; 
+       
 
 }
 
@@ -49,42 +55,65 @@ float EtudeStatistique1D::calculeMoyenne()
 calcule le maximum dans mon vecteur
 ***********************************************************************************/
 
-float EtudeStatistique1D::calculeMode()
+void EtudeStatistique1D::calculeMode(DataSource1D* d)
 {
-        int max=0;
-        for(int i=0 ; i<=9; i++,vec++)
+	int Valeur = 0;
+        int j = 0, i = 0;
+
+        for(int i = 0 ; i<3 ; i++)
         {
-                if( *vec > max)
-                {
-                        max=*vec;
-                }
+             mode[i]=0;   
+        } 
+
+	Valeur = d->getVecteur()[0];
+
+
+	for (int i = 1; i < 10; i++)
+	{
+		if (Valeur < d->getVecteur()[i])
+		{
+			Valeur = d->getVecteur()[i];
+		}
+	}
+	for (i = 0; i < 10; i++)
+	{
+		if ( Valeur == d->getVecteur()[i] &&j < 3 )
+		{
+			mode[j] = i + 1;
+			j++;
+		}
+	}
+}
+
+void EtudeStatistique1D::calculeMediane(DataSource1D* d)
+{
+     
+        mediane=  d->getVecteur()[4]; 
+}
+
+void EtudeStatistique1D::calculeS(DataSource1D* d)
+{
+       int  tmp = 0 ;
+        int dif = 0 ;
+        int i = 0 ;
+        for( i=0; i<10;i++)
+        {
+
+                tmp+= (i+1)*pow(d->getVecteur()[i] - getMoyenne(),2);
         }
-        resetvec();
-        //return max;
-        return 0 ; 
+        ecart_type= sqrt(tmp/d->getEffectifTotal());
 }
 
-float EtudeStatistique1D::calculeMediane()
+void EtudeStatistique1D::calculeRange(DataSource1D* d)
 {
-        /*float mediane ; 
-        mediane =(*(vec+4)+*(vec+5))/2;
-*/
-        return 0 ;
+        etendue= 0 ;
 }
 
-float EtudeStatistique1D::calculeS()
+void EtudeStatistique1D::calculeCV(DataSource1D* d)
 {
-        return 0 ;
-}
 
-float EtudeStatistique1D::calculeRange()
-{
-        return 0 ;
-}
-
-float EtudeStatistique1D::calculeCV()
-{
-        return 0 ;
+	coef_var = (ecart_type/moyenne)*100;
+        
 }
 
 //getter de mes variable
@@ -120,16 +149,19 @@ float EtudeStatistique1D::getCoef_var()
 }
 
 
-void EtudeStatistique1D::resetvec()
-{
-        vec=vecdebut;
-}
 
 void EtudeStatistique1D::affiche()
 {
         cout<<("la moyenne est de : ") << moyenne << endl ;
-        cout<<("la mediane est de : ") << mediane << endl ;
-        cout<<("le mode est de : ") << mode[0] << endl ;
+        cout<<("la mediane  est de : ") << mediane << endl ;
+        cout<<("le premier mode est de : ") << mode[0] << endl ;
+
+        if(mode[1]!=0) 
+        {
+                cout<<("le deuxieme mode est de : ") << mode[1] << endl ;
+                if(mode[2]!=0) cout<<("le troisieme mode est de : ") << mode[2] << endl ;
+        }
+
         cout<<("l'ecart type est de : ") << ecart_type << endl ;
         cout<<("l'etendue est de : ") << etendue << endl ;
         cout<<("le coefficient de variation est de : ") << coef_var << endl ;

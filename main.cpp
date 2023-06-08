@@ -35,9 +35,10 @@ int main()
                cout << "colonne 2 sélectionnée." << endl;
                break;
             case 4:
+            default : 
                 cout << "Vous quitter l'aplication" << endl;
                 menu = false;
-            break;
+            
           
         }
         if(choix==1|| choix==2|| choix==3)
@@ -47,10 +48,11 @@ int main()
         
       
 
-        for (int i =0 ; i<=10 ;i++)
+        for (int i =0 ; i<10 ;i++)
          {
-        cout << i<< " = " <<ech.getData()->getVecteur()[i] << endl ;
+        cout << i+1 << " = " <<ech.getData()->getVecteur()[i] << endl ;
           }
+          cout << ech.getData()->getVecteur()[10]<<endl;
 
           cout<< "effectif : " << ech.getData()->getEffectifTotal();   
         }

@@ -25,7 +25,6 @@ class DataSource1D
         float getEffectifTotal();
         int * getVecteur();
     
-    
 };
 #endif
 

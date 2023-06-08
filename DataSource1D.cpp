@@ -3,19 +3,14 @@
 DataSource1D::DataSource1D()
 {
     effectif=0;
-    for ( int i=0;i<=10;i++)vec[i]=0;
-    
+    for ( int i=0;i<10;i++)vec[i]=0;
 }
 
 
 void DataSource1D::ajouter(int valeur)
 {
-    vec[valeur]++ ;
-
-  effectif++;
-    
-   
-
+    vec[valeur-1]++ ;
+    effectif++;
 }
 
  float DataSource1D::getEffectifTotal()

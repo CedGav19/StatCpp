@@ -7,14 +7,14 @@ using namespace std;
 #include <cstring>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 #include "DataSource1D.h"
 
 
 class EtudeStatistique1D
 {   
     private:
-        int *vec ; 
-        int *vecdebut;
+    
 
          //variable moyenne
         float moyenne;
@@ -32,15 +32,14 @@ class EtudeStatistique1D
         EtudeStatistique1D(DataSource1D* data);
         ~EtudeStatistique1D();
 
-        void resetvec();
         //fonction de calcule qui calcule sur base du vecteur
 
-        float calculeMoyenne();
-        float calculeMediane ();
-        float calculeMode();
-        float calculeS(); // ecart type 
-        float calculeRange(); //etendue 
-        float calculeCV(); // coef de variation 
+        void calculeMoyenne(DataSource1D* data);
+        void calculeMediane (DataSource1D* data);
+        void calculeMode(DataSource1D* data);
+        void calculeS(DataSource1D* data); // ecart type 
+        void calculeRange(DataSource1D* data); //etendue 
+        void calculeCV(DataSource1D* data); // coef de variation 
 
         float getMoyenne();
         float getMediane();
